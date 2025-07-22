@@ -9,11 +9,8 @@ function App() {
 
   return (
     <>
-     <div className="nb nb_izquierda">
-      Hola, esto debería verse con fondo amarillo y texto negro
-    </div>
-     <RoutesApp/>
-     <NavBar/>
+      
+      <NavBar/>
     </>
   )
 }

@@ -54,11 +54,7 @@ export default MenuHamburguesa;
 function Home() {
     return (
         <>
-        <nav>
-        <h1>La porra del Monte</h1>
-        <a href="registrarme">Registrarme</a>
-        <a href="inicio_secion">Iniciar sesion</a>
-        </nav>
+     
         </>
     )
 }
