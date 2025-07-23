@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import '../styles/NavBar.css'
 
 
@@ -24,8 +25,8 @@ function NavBar() {
         </div>
 
         <div className="nb_derecha">
-            <button className="btn-registro">Registrarme</button>
-            <button className="btn-inicio">Iniciar sesión</button>
+            <Link to="/registro" className="btn-registro">Registrarme</Link>
+            <button onClick={() => window.location.href='/admin/login'} className="btn-inicio">Iniciar sesión</button>
         </div>
     </nav>
 )

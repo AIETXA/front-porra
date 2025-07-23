@@ -54,6 +54,28 @@
     border-radius: 6px;
 }
 
+.btn-registro {
+    padding: 8px;
+    font-size: 0.95em;
+    margin-left: 0.5rem;
+    border-radius: 6px;
+    color: white;
+    border: 1px solid transparent;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #2d2c2c9e;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+}
+.btn-registro:hover {
+    border-color: #0a0a0a;
+}
+.btn-registro:focus,
+.btn-registro:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
 .burger {
     font-size: 2rem;
     border: none;
@@ -62,8 +84,6 @@
     border: none;
     background-color: none;
     background: none;
-
-
 }
 
 .menu-desplegable {

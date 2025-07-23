@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 
 
-export default function MagicLinkLogin() {
+function Registrarme() {
     const [ email, setEmail ] = useState('')
     const [ mensaje, setMensaje ] = useState('')
     
@@ -11,10 +11,13 @@ export default function MagicLinkLogin() {
         setMensaje('');
     
         try {
-        const URL = import.meta.env.VITE_API_URL; 
+        const URL = import.meta.env.VITE_API_URL;
+        console.log("URL del backend:", URL);
+ 
         const res = await fetch(`${URL}/api/user/login`, {
            method: 'POST',
            headers: {'Content-Type':'application/json'},
+           credentials: 'include',
            body: JSON.stringify({email})
         });
 
@@ -49,3 +52,5 @@ return (
     </div>
     )
 }
+
+export default Registrarme;
