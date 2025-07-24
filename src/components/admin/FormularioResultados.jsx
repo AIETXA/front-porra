@@ -1,1 +1,0 @@
-import AdminEtapas from "./etapas";

@@ -7,22 +7,37 @@ const AdminEtapas = () => {
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_API_URL;
 
+useEffect(() => {
+  fetch(`${apiUrl}/api/etapas`, {
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json', 
+      'Cache-Control': 'no-cache',
+    },
+  })
+    .then(res => {
+      console.log("Tipo de respuesta:", res.headers.get("Content-Type"));
+      if(!res.ok) {
+        throw new Error('Error nuevo')
+      }
+        return res.json();
+    })
+    .then(data => {
+       console.log('Etapas cargadas:', data)
+      setEtapas(data)
+    })
 
-    useEffect(() => {
-        fetch(`${apiUrl}/admin/etapas`, { credentials: 'include'})
-        .then(res => res.json())
-        .then(data => setEtapas(data))
-        .catch(err => {
-           console.error('Error al cargar la etapa',err);
-           
-        })
-    }, []);
+    .catch(err => {
+      console.error('Error al cargar la etapa', err)
+    });
+}, []);
+
 
 
     return (
-         <div style={{ padding: '2rem' }}>
-      <h2>Etapas del Tour</h2>
-      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <div style={{ padding: '2rem' }}>
+        <h2>Etapas del Tour</h2>
+        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
         <thead>
           <tr>
             <th>Etapa</th>
@@ -34,6 +49,7 @@ const AdminEtapas = () => {
           </tr>
         </thead>
         <tbody>
+          
           {etapas.map(etapa => (
             <tr key={etapa.id}>
               <td>{etapa.numero}</td>
@@ -53,4 +69,4 @@ const AdminEtapas = () => {
 };
      
 
-export default AdminEtapas
+export default AdminEtapas;
