@@ -19,10 +19,10 @@ function NavBar() {
             <button className='burger' onClick={() => setMenuOpen(!menuOpen)}>&#9776;</button>
         {menuOpen && (
           <div className="menu-desplegable">
-            <a href="#inicio">Inicio</a>
-            <a href="#bases">Bases y condiciones</a>
-            <a href="#corredores">Corredores</a>
-            <a href="#etapas">Etapas</a>
+            <Link to="/dashboard/inicio">Inicio</Link>
+            <Link to="/dashboard/bases">Bases y condiciones</Link>
+            <Link to="/dashboard/corredores">Corredores</Link>
+            <Link to="/dashboard/etapas">Etapas</Link>
           </div>
         )}
         </div>

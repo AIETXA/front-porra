@@ -9,19 +9,11 @@ const AdminEtapas = () => {
 
 useEffect(() => {
   fetch(`${apiUrl}/api/etapas`, {
-    credentials: 'include',
     headers: {
-      'Accept': 'application/json', 
-      'Cache-Control': 'no-cache',
+      Authorization: `Bearer ${token}`, 
     },
   })
-    .then(res => {
-      console.log("Tipo de respuesta:", res.headers.get("Content-Type"));
-      if(!res.ok) {
-        throw new Error('Error nuevo')
-      }
-        return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
        console.log('Etapas cargadas:', data)
       setEtapas(data)
