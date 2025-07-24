@@ -12,10 +12,8 @@ function App() {
   return (
     <Router>
       <NavBar/>
-     
       <RoutesApp/>
-          
-     
+       
     </Router>
   )
 }

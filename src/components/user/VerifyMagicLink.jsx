@@ -13,14 +13,19 @@ if(!token) {
     return;
 }
 
-fetch(`http://localhost:3000/api/user/auth/${token}`)
+fetch(`http://localhost:3000/api/user/auth/${token}`, {
+    headers: {
+    'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+  }
+})
+
 .then(res => res.json())
 .then(data => {
     if(data.token) {
         localStorage.setItem('authToken', data.token);
         navigate('/dashboard')
     } else {
-        alert('Error' + data.message);
+        alert('Error' + (data?.message || 'No se pudo verificar el token'));
     }
 }) .catch (error => { console.error(error);
     alert('Error al verificar el token')
