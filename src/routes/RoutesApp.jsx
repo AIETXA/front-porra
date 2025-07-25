@@ -8,7 +8,7 @@ import ProtegerAdmin from '../components/admin/ProtegerAdmin';
 import AdminLogin from '../pages/admin/Login'
 import FormularioResultados from '../pages/admin/CargarResultados';
 import AdminPanel from '../pages/admin/Panel';
-
+import AdminEtapaDetalle from '../components/admin/DetalleEtapas';
 
 const RoutesApp = () => {
   
@@ -22,8 +22,9 @@ const RoutesApp = () => {
             <Route path="/admin/login" element={<AdminLogin />} /> 
       
             <Route path="/admin" element={<ProtegerAdmin />}>
-                <Route element={<AdminPanel/>}/>
+                <Route path="" element={<AdminPanel/>}/>
                     <Route path="etapas" element={<AdminEtapas />} />
+                    <Route path="etapas/:numero" element={<AdminEtapaDetalle/>}/>
                     <Route path="etapas/:id" element={<FormularioResultados/>}/>
            
     

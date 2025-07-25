@@ -8,7 +8,8 @@ const AdminEtapas = () => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
 useEffect(() => {
-  fetch(`${apiUrl}/api/etapas`, {
+   const token = localStorage.getItem('token');
+    fetch(`${apiUrl}/api/etapas`, {
     headers: {
       Authorization: `Bearer ${token}`, 
     },
@@ -50,7 +51,7 @@ useEffect(() => {
               <td>{etapa.recorrido || '-'}</td>
               <td>{etapa.tipo}</td>
               <td>
-                <button onClick={() => navigate(`/admin/etapas/${etapa.id}`)}>+</button>
+                <button onClick={() => navigate(`/admin/etapas/${etapa.numero}`)}>+</button>
               </td>
             </tr>
           ))}

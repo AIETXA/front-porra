@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom'
 function AdminEtapas() {
   const [etapas, setEtapas] = useState([])
   const [error, setError] = useState('')
+    
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem('token')
 
-    fetch('https://localhost:3000/admin/etapas', {
+    fetch(`${apiUrl}/admin/etapas`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => {
