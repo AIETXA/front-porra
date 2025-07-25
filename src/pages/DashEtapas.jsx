@@ -46,7 +46,12 @@ return (
                   <td style={{ padding: '8px' }}>{new Date(etapa.fecha).toLocaleDateString()}</td>
                   <td style={{ padding: '8px' }}>{etapa.kilometros ? etapa.kilometros + ' km' : '-'}</td>
                   <td style={{ padding: '8px' }}>{etapa.recorrido || '-'}</td>
-                  <a href="img/e-1"style={{ padding: '8px' }}>Detalles</a>
+                  <a 
+                  href={`/img/e-${etapa.numero}.jpg`} 
+                  target="_blank"
+                  style={{ padding: '8px', color:'rgba(215, 194, 53, 1)' }}
+                  rel="noopener noreferrer">
+                  <strong>Detalles</strong></a>
                  </tr>
               ))}
              
