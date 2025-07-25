@@ -2,12 +2,24 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const AdminEtapas = () => {
+const AdminEtapasTabla = () => {
+  console.log("Render AdminEtapas");
     const [ etapas, setEtapas ] = useState([]);
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_API_URL;
 
-useEffect(() => {
+    const tiposOrden = ['EtapasDiarias', 'FinalMontaña', 'FinalGeneral'];
+
+    const etapasAgrupadas = tiposOrden.map(tipo => ({
+      tipo,
+      etapas: etapas
+      .filter(e => e.tipo === tipo)
+      .sort((a, b) => parseInt(a.numero) - parseInt(b.numero))
+    }));
+
+
+    useEffect(() => {
+      console.log("useEffect se ejecuta");
    const token = localStorage.getItem('token');
     fetch(`${apiUrl}/api/etapas`, {
     headers: {
@@ -25,41 +37,44 @@ useEffect(() => {
     });
 }, []);
 
-
+ console.log('Etapas agrupadas:', etapasAgrupadas);
 
     return (
-      <div style={{ padding: '2rem' }}>
-        <h2>Etapas del Tour</h2>
-        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-        <thead>
-          <tr>
-            <th>Etapa</th>
-            <th>Fecha</th>
-            <th>Distancia</th>
-            <th>Recorrido</th>
-            <th>Tipo</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          {etapas.map(etapa => (
-            <tr key={etapa.id}>
-              <td>{etapa.numero}</td>
-              <td>{new Date(etapa.fecha).toLocaleDateString()}</td>
-              <td>{etapa.kilometros ? etapa.kilometros + ' km' : '-'}</td>
-              <td>{etapa.recorrido || '-'}</td>
-              <td>{etapa.tipo}</td>
-              <td>
-                <button onClick={() => navigate(`/admin/etapas/${etapa.numero}`)}>+</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+      <>
+      {etapasAgrupadas.map(grupo => (
+        <div key={grupo.tipo} style={{ margin: '10px', marginBottom: '2rem' }}>
+          <h3>{grupo.tipo}</h3>
+          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <thead>
+              <tr className="titulos-tabla">
+                <th>Etapa</th>
+                <th>Fecha</th>
+                <th>Distancia</th>
+                <th>Recorrido</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {grupo.etapas.sort((a, b) => parseInt(a.numero) - parseInt(b.numero)).map(etapa => (
+                <tr key={etapa.id}>
+                  <td>{etapa.numero}</td>
+                  <td>{new Date(etapa.fecha).toLocaleDateString()}</td>
+                  <td>{etapa.kilometros ? etapa.kilometros + ' km' : '-'}</td>
+                  <td>{etapa.recorrido || '-'}</td>
+                  <td>
+                    {etapa.tipo !== 'Descanso' && (
+                      <button onClick={() => navigate(`/admin/etapas/${etapa.id}`)} className="botones">Cargar</button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+      </>
+    );
+  };
      
 
-export default AdminEtapas;
+export default AdminEtapasTabla;

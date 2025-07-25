@@ -8,7 +8,7 @@ const dorsalesPorTipoEtapa = {
 };
 
 const AdminEtapaDetalle = () => {
-  const { numero } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -18,7 +18,7 @@ const AdminEtapaDetalle = () => {
   const [dorsales, setDorsales] = useState([]);
 
   useEffect(() => {
-    fetch(`${apiUrl}/api/etapas/${numero}`, { 
+    fetch(`${apiUrl}/api/etapas/${id}`, { 
       headers: { Authorization: `Bearer ${token}` } 
     })
     .then(res => res.json())
@@ -29,7 +29,7 @@ const AdminEtapaDetalle = () => {
     setDorsales(Array(cantidad).fill(''));
     })
     .catch(console.error);
-  }, [numero]);
+  }, [id]);
 
   const handleChangeDorsal = (index, value) => {
     const dorsalesGanadores = [...dorsales];
@@ -42,14 +42,14 @@ const AdminEtapaDetalle = () => {
 
   
 try {
-    const res = await fetch(`${apiUrl}/api/etapas/${numero}/procesar`, {
+    const res = await fetch(`${apiUrl}/api/etapas/${id}/procesar`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({  
-        numero: etapa.numero,
+        numero: etapa.id,
         resultados: dorsales.map((dorsal, i) => ({
         posicion: i + 1,
         dorsal: Number(dorsal) 

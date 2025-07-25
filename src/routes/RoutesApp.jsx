@@ -2,11 +2,11 @@
 import { Routes, Route } from 'react-router-dom';
 import VerifyMagicLink from '../components/user/VerifyMagicLink';
 import Registrarme from '../components/user/UserLogin';
-import AdminEtapas from '../pages/admin/Etapas'
+import AdminEtapasTabla from '../components/admin/Etapas'
 import Dashboard from '../pages/Dashboard';
 import ProtegerAdmin from '../components/admin/ProtegerAdmin';
 import AdminLogin from '../pages/admin/Login'
-import FormularioResultados from '../pages/admin/CargarResultados';
+
 import AdminPanel from '../pages/admin/Panel';
 import AdminEtapaDetalle from '../components/admin/DetalleEtapas';
 
@@ -23,9 +23,9 @@ const RoutesApp = () => {
       
             <Route path="/admin" element={<ProtegerAdmin />}>
                 <Route path="" element={<AdminPanel/>}/>
-                    <Route path="etapas" element={<AdminEtapas />} />
-                    <Route path="etapas/:numero" element={<AdminEtapaDetalle/>}/>
-                    <Route path="etapas/:id" element={<FormularioResultados/>}/>
+                    <Route path="etapas" element={<AdminEtapasTabla />} />
+                    <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
+                   
            
     
         

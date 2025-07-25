@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function AdminEtapas() {
+    console.log("Render AdminEtapas");
   const [etapas, setEtapas] = useState([])
   const [error, setError] = useState('')
     
@@ -30,7 +31,7 @@ function AdminEtapas() {
       <ul>
         {etapas.map((etapa) => (
           <li key={etapa.id} style={{ marginBottom: '1rem' }}>
-            <strong>Etapa {etapa.numero}</strong> - {etapa.tipo} - {etapa.fecha}
+            <strong>Etapa {etapa.id}</strong> - {etapa.tipo} - {etapa.fecha}
             <br />
             <Link to={`/admin/etapas/${etapa.id}`}>
               Cargar resultados
