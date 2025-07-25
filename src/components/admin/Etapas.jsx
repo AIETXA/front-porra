@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const AdminEtapasTabla = () => {
-  console.log("Render AdminEtapas");
+  
     const [ etapas, setEtapas ] = useState([]);
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_API_URL;
