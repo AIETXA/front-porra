@@ -1,15 +1,15 @@
-// src/pages/Etapas.jsx
+
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function EtapasAdmin() {
+function AdminEtapas() {
   const [etapas, setEtapas] = useState([])
   const [error, setError] = useState('')
 
   useEffect(() => {
     const token = localStorage.getItem('token')
 
-    fetch('https://back-porra.onrender.com/etapas', {
+    fetch('https://localhost:3000/admin/etapas', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => {
@@ -33,6 +33,7 @@ function EtapasAdmin() {
             <Link to={`/admin/etapas/${etapa.id}`}>
               Cargar resultados
             </Link>
+            
           </li>
         ))}
       </ul>
@@ -40,4 +41,4 @@ function EtapasAdmin() {
   )
 }
 
-export default EtapasAdmin
+export default AdminEtapas

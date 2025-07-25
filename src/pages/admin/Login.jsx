@@ -36,24 +36,7 @@ try {
 
 
 return (
-  <div>
-    <h2>Iniciar Sesión</h2>
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="admin" placeholder="Usuario admin" required />
-      <input type="password" name="pass" placeholder="Contraseña" required />
-      <button type="submit">Entrar</button>
-    </form>
-    <p style={{ color: 'red' }}>{mensaje || 'No hay mensaje'}</p>
-  </div>
-)
-
-
-
-
-
-
-
-   /* <div style={{ padding: '2rem' }}>
+ <div style={{ padding: '2rem' }}>
         <h2>Iniciar Sesión</h2>
       
         <form onSubmit={handleSubmit}>
@@ -63,7 +46,8 @@ return (
         </form>
      {mensaje && <p style={{color:'red'}}>{mensaje}</p>}
 
-    </div>*/
+    </div>
+)
 
 }
 

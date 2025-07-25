@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+//const apiUrl = import.meta.env.VITE_API_URL;
 
 
 
@@ -29,7 +29,8 @@ function NavBar() {
 
         <div className="nb_derecha">
             <Link to="/registro" className="btn-registro">Registrarme</Link>
-            <button onClick={() => window.location.href=`${apiUrl}/admin/login`} className="btn-inicio">Iniciar sesión</button>
+            <Link to="/admin/login" className="btn-inicio">Iniciar sesión</Link>
+
         </div>
     </nav>
 )

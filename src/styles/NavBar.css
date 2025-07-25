@@ -54,7 +54,7 @@
     border-radius: 6px;
 }
 
-.btn-registro {
+.btn-registro, .btn-inicio {
     padding: 8px;
     font-size: 0.95em;
     margin-left: 0.5rem;
@@ -68,7 +68,7 @@
     transition: border-color 0.25s;
 
 }
-.btn-registro:hover {
+.btn-registro:hover, .btn-inicio:hover {
     border-color: #0a0a0a;
 }
 .btn-registro:focus,
