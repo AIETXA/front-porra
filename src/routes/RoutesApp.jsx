@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import VerifyMagicLink from '../components/user/VerifyMagicLink';
 import Registrarme from '../components/user/UserLogin';
-import AdminEtapas from '../components/admin/etapas';
+import AdminEtapas from '../components/admin/Etapas';
 import Dashboard from '../pages/Dashboard';
 
 const RoutesApp = () => {
