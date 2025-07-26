@@ -35,6 +35,48 @@ h1 {
   line-height: 1.1;
 }
 
+h3 {
+  background-color:  rgb(227, 204, 57);
+  padding: 5px;
+  border-radius: 2px;
+}
+.bienvenido {
+  display: flex;
+  justify-content: center;
+ text-align: center;
+}
+.mas {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+}
+.cerrar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 10px;
+}
+
+.botones {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgb(227, 204, 57);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.botones:hover {
+  button:hover {
+  border-color: #0a0a0a;
+  border: 2px solid black;
+  color: rgb(41, 41, 39);
+}
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;

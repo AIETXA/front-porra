@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const AdminEtapasTabla = () => {
+const EtapasAdminTabla = () => {
   
     const [ etapas, setEtapas ] = useState([]);
     const [ loading, setLoading ] = useState(true)
@@ -21,8 +21,7 @@ const AdminEtapasTabla = () => {
 
     useEffect(() => {
       setTimeout(() => {
-
-        
+      
         const token = localStorage.getItem('token');
         fetch(`${apiUrl}/api/etapas`, {
           headers: {
@@ -60,7 +59,7 @@ if(loading) {
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="centrado">
               {grupo.etapas.sort((a, b) => parseInt(a.numero) - parseInt(b.numero)).map(etapa => (
                 <tr key={etapa.id}>
                   <td>{etapa.numero}</td>
@@ -83,4 +82,4 @@ if(loading) {
   };
      
 
-export default AdminEtapasTabla;
+export default EtapasAdminTabla;

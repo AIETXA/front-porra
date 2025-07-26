@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
-export default function AdminPanel() {
+const AdminPanel =() => {
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -78,3 +78,4 @@ export default function AdminPanel() {
 
 
 }
+ export default AdminPanel

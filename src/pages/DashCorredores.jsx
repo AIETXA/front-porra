@@ -35,11 +35,11 @@ const Corredores = () => {
         </thead>
         <tbody>
           {corredores.map(c => (
-            <tr key={c.id} style={{ borderBottom: '1px solid #eee' }}>
+            <tr key={c.id} style={{ padding: '8px', borderBottom: '1px solid #eee' }}>
               <td style={{ padding: '8px' }}>{c.dorsal}</td>
               <td style={{ padding: '8px' }}>{c.nombre}</td>
               <td style={{ padding: '8px' }}>{c.apellido}</td>
-              <a href={c.url} style={{ padding: '8px' }} target="_blank" rel="noopener noreferrer" >{c.url}</a>
+              <td><a href={c.url} style={{ padding: '8px' }} target="_blank" rel="noopener noreferrer" >{c.url}</a></td>
             </tr>
           ))}
         </tbody>

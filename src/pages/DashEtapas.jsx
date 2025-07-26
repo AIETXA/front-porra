@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FaSpinner } from "react-icons/fa";
+
 
 const tiposOrden = ['EtapasDiarias', 'FinalMontaña', 'FinalGeneral'];
 
@@ -42,7 +42,7 @@ return (
           <h3>{grupo.tipo}</h3>
           <table style={{ borderCollapse: 'collapse', width: '100%' }}>
             <thead>
-              <tr className="titulos-tabla" style={{ backgroundColor: '#f7f7f7', textAlign: 'left' }}>
+              <tr className="titulos-tabla" style={{ backgroundColor: '#f7f7f7', textAlign: 'center' }}>
                 <th style={{ padding: '8px' }}>Etapa</th>
                 <th style={{ padding: '8px' }}>Fecha</th>
                 <th style={{ padding: '8px' }}>Distancia</th>
@@ -50,9 +50,8 @@ return (
                 
               </tr>
             </thead>
-            <tbody>
-           
-              {grupo.etapas.map(etapa => (
+            <tbody className="centrado">
+           {grupo.etapas.map(etapa => (
                 <tr key={etapa.id} style={{ borderBottom: '1px solid #eee' }}>
                   <td style={{ padding: '8px' }}>{etapa.numero}</td>
                   <td style={{ padding: '8px' }}>{new Date(etapa.fecha).toLocaleDateString()}</td>
@@ -63,10 +62,9 @@ return (
                     href={`/img/e-${etapa.numero}.jpg`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: 'rgba(215, 194, 53, 1)' }}
->                   <strong>Detalles</strong></a>
-
-                 </td>
+                    style={{ color: 'rgba(215, 194, 53, 1)' }}>
+                    <strong>Detalles</strong></a>
+                </td>
                 </tr>
               ))}
             </tbody>
