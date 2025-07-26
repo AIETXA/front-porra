@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { FaSpinner } from "react-icons/fa";
 
 const tiposOrden = ['EtapasDiarias', 'FinalMontaña', 'FinalGeneral'];
 
 const EtapasEnDashboard = ({ esVistaUsuario = false }) => {
     const [etapas, setEtapa] = useState([]);
+    const [ loading, setLoading ] = useState(true)
   
 
   useEffect(() => {
-    axios.get('http://localhost:3000/etapas')
-    .then(res => 
-        setEtapa (res.data))
-        
-    .catch(err => console.error(err));
-  }, []);
+    setTimeout(() => {
+
+      axios.get('http://localhost:3000/etapas')
+      .then(res => 
+        setEtapa (res.data),
+        setLoading(false))
+        .catch(err => console.error(err));
+      }, 1000)
+      }, []);
+
 
   const etapasAgrupadas = tiposOrden.map(tipo => ({
     tipo,
@@ -22,6 +27,12 @@ const EtapasEnDashboard = ({ esVistaUsuario = false }) => {
       .filter(e => e.tipo === tipo)
       .sort((a, b) => parseInt(a.numero) - parseInt(b.numero))
   }));
+
+if(loading) {
+  return <div className="spinner"></div>
+}
+
+
 return (
     <div className="tablero-etapas"  style={{ padding: '1rem' }}>
      <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>Etapas</h3>

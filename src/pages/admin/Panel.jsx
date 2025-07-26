@@ -26,7 +26,7 @@ export default function AdminPanel() {
       minHeight: '100vh',
     },
     h2: {
-      color: '#f90b96ff',
+      color: 'black',
     },
     ul: {
       listStyle: 'none',
@@ -37,20 +37,21 @@ export default function AdminPanel() {
     },
     a: {
       textDecoration: 'none',
-      backgroundColor: '#00cc36ff',
-      color: 'white',
+      backgroundColor: 'rgb(246, 221, 60)',
+      color: 'black',
       padding: '0.5rem 1rem',
       borderRadius: '5px',
     },
    
     button: {
-      backgroundColor: '#00cc36ff',
-      color: 'white',
+      backgroundColor:' rgb(246, 221, 60)',
+      color: 'black',
       padding: '0.5rem 1rem',
       borderRadius: '5px',
       border: 'none',
       cursor: 'pointer',
     },
+
   }
 
   return (

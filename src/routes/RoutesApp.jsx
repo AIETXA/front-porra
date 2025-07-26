@@ -19,14 +19,13 @@ const RoutesApp = () => {
     return (
        <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            
+            <Route index element={<Inicio />} />
             <Route path="/dashboard/inicio" element={<Inicio />} />
-
             <Route path="/dashboard/bases" element={<BasesyCondiciones/>}/>
             <Route path="/dashboard/etapas" element={<EtapasEnDashboard esVistaUsuario={true}/>}/>  
 
             <Route path="/dashboard/corredores" element={<Corredores/>}/>
-
+            
             <Route path="/registro" element={<Registrarme />} />
             <Route path="/verify" element={<VerifyMagicLink />} />
 
@@ -36,6 +35,7 @@ const RoutesApp = () => {
                 <Route path="" element={<AdminPanel/>}/>
                     <Route path="etapas" element={<AdminEtapasTabla />} />
                     <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
+                    <Route path="corredores" element={<Corredores/>}/>
                    
            
     

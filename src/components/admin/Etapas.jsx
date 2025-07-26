@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const AdminEtapasTabla = () => {
   
     const [ etapas, setEtapas ] = useState([]);
+    const [ loading, setLoading ] = useState(true)
     const navigate = useNavigate();
     const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -19,25 +20,30 @@ const AdminEtapasTabla = () => {
 
 
     useEffect(() => {
-      console.log("useEffect se ejecuta");
-   const token = localStorage.getItem('token');
-    fetch(`${apiUrl}/api/etapas`, {
-    headers: {
-      Authorization: `Bearer ${token}`, 
-    },
-  })
-    .then(res => res.json())
-    .then(data => {
-       console.log('Etapas cargadas:', data)
-      setEtapas(data)
-    })
+      setTimeout(() => {
 
-    .catch(err => {
-      console.error('Error al cargar la etapa', err)
-    });
+        
+        const token = localStorage.getItem('token');
+        fetch(`${apiUrl}/api/etapas`, {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        })
+        .then(res => res.json())
+        .then(data => {
+          setEtapas(data),
+          setLoading(false)
+        })
+        
+        .catch(err => {
+          console.error('Error al cargar la etapa', err)
+        });
+      }, 1000)
 }, []);
 
- console.log('Etapas agrupadas:', etapasAgrupadas);
+if(loading) {
+  return <div className="spinner"></div>
+}
 
     return (
       <>

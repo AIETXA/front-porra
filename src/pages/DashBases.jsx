@@ -1,3 +1,5 @@
+import '../styles/Inicio.css'
+
 
 const BasesyCondiciones = () => {
  
@@ -28,25 +30,104 @@ const BasesyCondiciones = () => {
             </p>
         </li>
         <li>Las puntuaciones serán las siguientes:</li></ol>
-        <ul><li>DIARIAS:	</li>				
-		<p>En cada etapa:</p>
-        				
-			<li>1º 31 puntos</li>
-            <li>2º  23 puntos</li>	
-            <li>3º 17 puntos</li>
-            <li>4º  13 puntos</li>
-            <li>5º  9 puntos</li>
-            <li>6º  7 puntos</li>
-            	
-					
-	
-        </ul>
-    
-    
-    
-    
- </section>
- )
+        <table className="t-1">
+            <thead>
+                <caption><strong>Diarias:</strong></caption>
+                <tr>
+                    <th colSpan='6'><u>En cada etapa:</u></th>
+                </tr>
+                <tr>
+                    <th>1º puesto</th>
+                    <th>2º puesto</th>
+                    <th>3º puesto</th>
+                    <th>4º puesto</th>
+                    <th>5º puesto</th>
+                    <th>6º puesto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>31 puntos</td>
+                    <td>23 puntos</td>
+                    <td>17 puntos</td>
+                    <td>13 puntos</td>
+                    <td>9 puntos</td>
+                    <td>7 puntos</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table className="t-2">
+            <thead>
+                <caption><strong>Final:</strong></caption>
+                <tr>
+                    <th colSpan='3'><u>Montaña:</u></th>
+                </tr>
+                <tr>
+                    <th>1º puesto</th>
+                    <th>2º puesto</th>
+                    <th>3º puesto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>50 puntos</td>
+                    <td>30 puntos</td>
+                    <td>15 puntos</td>
+                   
+                </tr>
+            </tbody>
+       
+
+            <thead>
+                <tr>
+                    <th colSpan="15"><u>General:</u></th>
+                </tr>
+                <tr>
+                    <th>1º puesto</th>
+                    <th>2º puesto</th>
+                    <th>3º puesto</th>
+                    <th>4º puesto</th>
+                    <th>5º puesto</th>
+                    <th>6º puesto</th>
+                    <th>7º puesto</th>
+                    <th>8º puesto</th>
+                    <th>9º puesto</th>
+                    <th>10º puesto</th>
+                    <th>11º puesto</th>
+                    <th>12º puesto</th>
+                    <th>13º puesto</th>
+                    <th>14º puesto</th>
+                    <th>15º puesto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>100 puntos</td>
+                    <td>75 puntos</td>
+                    <td>65 puntos</td>
+                    <td>60 puntos</td>
+                    <td>55 puntos</td>
+                    <td>50 puntos</td>
+                    <td>45 puntos</td>
+                    <td>40 puntos</td>
+                    <td>35 puntos</td>
+                    <td>30 puntos</td>
+                    <td>25 puntos</td>
+                    <td>20 puntos</td>
+                    <td>15 puntos</td>
+                    <td>10 puntos</td>
+                    <td>5 puntos</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style={{textAlign:'center'}}><strong>
+            LA INSCRIPCIÓN SE CERRARÁ EL DOMINGO 3 DE JULIO A LAS 14 HORAS. <br></br> 
+            LA PRIMERA Y SEGUNDA ETAPA DEL VIERNES 1 Y SÁBADO 2 NO PUNTUAN. <br></br>			
+		    HASTA LAS 22 HORAS DEL JUEVES 7 DE JULIO SE PODRÁN RECLAMAR LOS POSIBLES ERRORES EN LAS TRANSCRIPCIONES DE LAS LISTAS.
+        </strong></p>
+    </section>
+    )
 }
 
 export default BasesyCondiciones

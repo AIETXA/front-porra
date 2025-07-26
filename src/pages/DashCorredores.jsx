@@ -3,13 +3,23 @@ import axios from "axios";
 
 const Corredores = () => {
   const [corredores, setCorredores] = useState([]);
+  const [ loading, setLoading ] = useState(true)
 
   useEffect(() => {
-    axios.get('http://localhost:3000/corredores/')
-      .then(res => setCorredores(res.data))
+    setTimeout(() => {
+
+      axios.get('http://localhost:3000/corredores/')
+      .then(res => 
+        setCorredores(res.data),
+        setLoading(false))
       .catch(err => console.error(err));
+    }, 1000)
   }, []);
 
+  if(loading) {
+    return <div className="spinner"></div>
+  }
+  
   return (
     <div style={{ padding: '1rem' }}>
       <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>Corredores</h3>
