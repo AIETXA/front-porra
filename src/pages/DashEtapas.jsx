@@ -4,9 +4,9 @@ import axios from "axios";
 
 const tiposOrden = ['EtapasDiarias', 'FinalMontaña', 'FinalGeneral'];
 
-const EtapasEnDashboard = () => {
+const EtapasEnDashboard = ({ esVistaUsuario = false }) => {
     const [etapas, setEtapa] = useState([]);
-
+  
 
   useEffect(() => {
     axios.get('http://localhost:3000/etapas')
@@ -25,6 +25,7 @@ const EtapasEnDashboard = () => {
 return (
     <div className="tablero-etapas"  style={{ padding: '1rem' }}>
      <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>Etapas</h3>
+      
       {etapasAgrupadas.map((grupo) => (
         <div className="grid-etapas" key={grupo.tipo} style={{ margin: '10px', marginBottom: '2rem' }}>
           <h3>{grupo.tipo}</h3>
@@ -46,21 +47,25 @@ return (
                   <td style={{ padding: '8px' }}>{new Date(etapa.fecha).toLocaleDateString()}</td>
                   <td style={{ padding: '8px' }}>{etapa.kilometros ? etapa.kilometros + ' km' : '-'}</td>
                   <td style={{ padding: '8px' }}>{etapa.recorrido || '-'}</td>
-                  <a 
-                  href={`/img/e-${etapa.numero}.jpg`} 
-                  target="_blank"
-                  style={{ padding: '8px', color:'rgba(215, 194, 53, 1)' }}
-                  rel="noopener noreferrer">
-                  <strong>Detalles</strong></a>
-                 </tr>
+                  <td style={{ padding: '8px' }}>
+                  <a
+                    href={`/img/e-${etapa.numero}.jpg`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'rgba(215, 194, 53, 1)' }}
+>                   <strong>Detalles</strong></a>
+
+                 </td>
+                </tr>
               ))}
-             
             </tbody>
           </table>
         </div>
       ))}
-      </div>
-    );
-}
+   
+        </div>
+);
+
+};
 
 export default EtapasEnDashboard

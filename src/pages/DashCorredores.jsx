@@ -1,13 +1,41 @@
-const CorredoresList = ({ corredores }) => {
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const Corredores = () => {
+  const [corredores, setCorredores] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/corredores/')
+      .then(res => setCorredores(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
-    <ul>
-      {corredores.map((c) => (
-        <li key={c.id}>
-          #{c.dorsal} - {c.nombre} {c.equipo ? `(${c.equipo})` : ''}
-        </li>
-      ))}
-    </ul>
+    <div style={{ padding: '1rem' }}>
+      <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>Corredores</h3>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead style={{ backgroundColor: '#f7f7f7', textAlign: 'left' }}>
+          <tr>
+            <th style={{ padding: '8px', borderBottom: '1px solid #ddd' }}>Dorsal</th>
+            <th style={{ padding: '8px', borderBottom: '1px solid #ddd' }}>Nombre</th>
+            <th style={{ padding: '8px', borderBottom: '1px solid #ddd' }}>Apellido</th>
+            <th style={{ padding: '8px', borderBottom: '1px solid #ddd' }}>Info</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {corredores.map(c => (
+            <tr key={c.id} style={{ borderBottom: '1px solid #eee' }}>
+              <td style={{ padding: '8px' }}>{c.dorsal}</td>
+              <td style={{ padding: '8px' }}>{c.nombre}</td>
+              <td style={{ padding: '8px' }}>{c.apellido}</td>
+              <a href={c.url} style={{ padding: '8px' }} target="_blank" rel="noopener noreferrer" >{c.url}</a>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
-export default CorredoresList;
+export default Corredores;

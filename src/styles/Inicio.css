@@ -1,0 +1,11 @@
+.presentacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-bases {
+    background-color: rgba(215, 194, 53, 1);
+    border: 1px solid black;
+}

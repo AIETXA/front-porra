@@ -9,15 +9,24 @@ import AdminLogin from '../pages/admin/Login'
 import AdminPanel from '../pages/admin/Panel';
 import AdminEtapaDetalle from '../components/admin/DetalleEtapas';
 import EtapasEnDashboard from '../pages/DashEtapas';
+import Corredores from '../pages/DashCorredores';
+import Inicio from '../pages/DashInicio';
+import BasesyCondiciones from '../pages/DashBases';
+
 
 const RoutesApp = () => {
   
     return (
        <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/etapas" element={<EtapasEnDashboard/>}/>  
             
-            
+            <Route path="/dashboard/inicio" element={<Inicio />} />
+
+            <Route path="/dashboard/bases" element={<BasesyCondiciones/>}/>
+            <Route path="/dashboard/etapas" element={<EtapasEnDashboard esVistaUsuario={true}/>}/>  
+
+            <Route path="/dashboard/corredores" element={<Corredores/>}/>
+
             <Route path="/registro" element={<Registrarme />} />
             <Route path="/verify" element={<VerifyMagicLink />} />
 
