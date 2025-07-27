@@ -11,10 +11,10 @@ function Registrarme() {
         setMensaje('');
     
         try {
-        const URL = import.meta.env.VITE_API_URL;
+        const apiUrl = import.meta.env.VITE_API_URL;
        
  
-        const res = await fetch(`${URL}/api/user/login`, {
+        const res = await fetch(`${apiUrl}/api/user/login`, {
            method: 'POST',
            headers: {'Content-Type':'application/json'},
            credentials: 'include',

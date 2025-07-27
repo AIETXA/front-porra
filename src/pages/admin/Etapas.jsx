@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function AdminEtapas() {
-    console.log("Render AdminEtapas");
+
   const [etapas, setEtapas] = useState([])
   const [error, setError] = useState('')
     

@@ -4,11 +4,11 @@ import axios from "axios";
 const Corredores = () => {
   const [corredores, setCorredores] = useState([]);
   const [ loading, setLoading ] = useState(true)
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     setTimeout(() => {
 
-      axios.get('http://localhost:3000/corredores/')
+      axios.get(`${apiUrl}/corredores/`)
       .then(res => 
         setCorredores(res.data),
         setLoading(false))

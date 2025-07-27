@@ -23,8 +23,8 @@ function DashboardUser() {
     async function cargarDatos() {
       try {
         const headers = { Authorization: 'Bearer ' + token }
-
-        const res = await fetch('http://localhost:3000/api/user/dashboard', { headers });
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const res = await fetch(`${apiUrl}/api/user/dashboard`, { headers });
         if (!res.ok) throw new Error('Error al obtener datos del dashboard')
 
         const data = await res.json();

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
 
-//const apiUrl = import.meta.env.VITE_API_URL;
+
 
 
 

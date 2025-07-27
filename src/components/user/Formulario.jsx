@@ -42,7 +42,9 @@ const payload = {
     dorsales: dorsales.map(d => parseInt(d))
 }
 
-axios.post('http://localhost:3000/api/porras', payload, {
+const apiUrl = import.meta.env.VITE_API_URL;
+
+axios.post(`${apiUrl}/api/porras`, payload, {
   headers: {
     Authorization: 'Bearer ' + localStorage.getItem('authToken')
   }

@@ -8,14 +8,15 @@ function VerifyMagicLink() {
   useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const token = params.get('token')
-        
+        const apiUrl = import.meta.env.VITE_API_URL;
+
         if(!token) {
             alert('Token no encontrado')
             setLoading(false)
             return;
         }
         
-        fetch(`http://localhost:3000/api/user/auth/${token}`, {
+        fetch(`${apiUrl}/api/user/auth/${token}`, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('authToken')
             },

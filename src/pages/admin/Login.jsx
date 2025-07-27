@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function AdminLogin() {
   const [mensaje, setMensaje] = useState('')
   const navigate = useNavigate()
-
+  const apiUrl = import.meta.env.VITE_API_URL;
 const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
@@ -12,7 +12,7 @@ const handleSubmit = async (e) => {
     const pass = formData.get('pass')
 
 try {
-    const res = await fetch('http://localhost:3000/admin/login', {
+    const res = await fetch(`${apiUrl}/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ admin, pass })

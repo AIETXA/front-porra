@@ -17,7 +17,8 @@ function UserHome() {
         }
        
     async function verificarSiHayPorra() {
-        const res = await fetch('http://localhost:3000/api/porras/me', {
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const res = await fetch(`${apiUrl}/api/porras/me`, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }

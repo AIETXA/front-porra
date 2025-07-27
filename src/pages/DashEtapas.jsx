@@ -7,12 +7,12 @@ const tiposOrden = ['EtapasDiarias', 'FinalMontaña', 'FinalGeneral'];
 const EtapasEnDashboard = ({ esVistaUsuario = false }) => {
     const [etapas, setEtapa] = useState([]);
     const [ loading, setLoading ] = useState(true)
-  
+    const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     setTimeout(() => {
 
-      axios.get('http://localhost:3000/etapas')
+      axios.get(`${apiUrl}/etapas`)
       .then(res => 
         setEtapa (res.data),
         setLoading(false))
