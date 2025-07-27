@@ -35,10 +35,10 @@ if(repetidos.length) {
     setMensajeError(`Hay dorsales repetidos:  ${[...new Set(repetidos)].join(', ')}`)
     return;
 }
+
 const payload = {
     nombre: datos.get("nombre"),
-    email: datos.get("email"),
-    telefono: datos.get("telefono"),
+    
     dorsales: dorsales.map(d => parseInt(d))
 }
 
@@ -49,7 +49,8 @@ axios.post('http://localhost:3000/api/porras', payload, {
 })
 .then(res => {
   console.log(res.data); 
-  setMensajeError('')
+  setMensajeError(''),
+ window.location.href = '/dashboard/user';
 })
 .catch(err => {
   console.error(err);

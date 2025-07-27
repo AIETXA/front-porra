@@ -72,6 +72,44 @@ h3 {
 .nav-inscripcion input {
   width:200px;
 }
+.dash-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+.porra-card {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.dash-section ol {
+ 
+  padding-left: 1.5rem;
+}
+
+ol li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.dash-etapas table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dash-etapas thead th {
+  background-color: #005f73;
+  color: white;
+  padding: 0.75rem;
+}
+.dash-etapas tbody td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
 
 .botones {
   border-radius: 8px;

@@ -22,6 +22,7 @@ function Registrarme() {
         });
 
         const data = await res.json();
+          setMensaje('Enviando...')
         console.log(data);
 
         if(res.ok){
@@ -47,6 +48,7 @@ return (
             required
             />
             <button type='submit'>Enviar enlace</button>
+            
         </form>
         {mensaje && <p>{mensaje}</p>}
     </div>
