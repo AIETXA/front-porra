@@ -12,7 +12,7 @@ function Registrarme() {
     
         try {
         const URL = import.meta.env.VITE_API_URL;
-        console.log("URL del backend:", URL);
+       
  
         const res = await fetch(`${URL}/api/user/login`, {
            method: 'POST',

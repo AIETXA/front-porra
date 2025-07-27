@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import CorredoresList from '../CorredoresList'
+
 import EtapasList from '../EtapasList'
+import ItemPorra from '../user/MisPorras'
 
 
 
@@ -36,6 +37,8 @@ function DashboardUser() {
       } finally {
         setLoading(false)
       }
+
+      
     }
 
     cargarDatos()
@@ -48,16 +51,14 @@ function DashboardUser() {
     <>
     <section className='dash-section'>
          <h2>Tu porra</h2>
-            {porras.length === 0 ? (
-        <p>No tenés porras creadas.</p>
-      ) : (
-        porras.map((porra, i) => (
-          <div key={i} className='porra-card'>
-            <h2>{porra.nombre}</h2>
-            <CorredoresList corredores = {porra.corredores}/>
-          </div>
-        ))
-      )}
+        {porras.length === 0 ? (
+            <p>No tenés porras creadas.</p>
+            ) : (
+            porras.map((porra, i) => (
+                <ItemPorra key={i} porra={porra} />
+            ))
+            )}
+
 
       <h2>Ranking</h2>
       <ol>

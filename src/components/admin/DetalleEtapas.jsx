@@ -48,18 +48,16 @@ try {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       },
-      body: JSON.stringify({  
-        numero: etapa.id,
-        resultados: dorsales.map((dorsal, i) => ({
-        posicion: i + 1,
-        dorsal: Number(dorsal) 
-        }))
+      body: JSON.stringify({ 
+        numeroEtapa: etapa.numero, 
+        dorsales: dorsales.map(d => Number(d))
+       
       })
     });
   
       if(!res.ok) throw new Error('Error al guardar resultados');
       alert('Resultados guardados');
-      navigate('/admin/etapas'); 
+      navigate('/admin/ranking'); 
 
     } catch(err) {
         console.error({message: 'Error de carga'})

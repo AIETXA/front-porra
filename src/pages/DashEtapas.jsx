@@ -35,7 +35,7 @@ if(loading) {
 
 return (
     <div className="tablero-etapas"  style={{ padding: '1rem' }}>
-     <h3 style={{ textAlign: 'center', marginBottom: '1rem' }}>Etapas</h3>
+     <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Etapas</h2>
       
       {etapasAgrupadas.map((grupo) => (
         <div className="grid-etapas" key={grupo.tipo} style={{ margin: '10px', marginBottom: '2rem' }}>
