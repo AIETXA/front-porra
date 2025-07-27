@@ -14,6 +14,7 @@ import Inicio from '../pages/DashInicio';
 import BasesyCondiciones from '../pages/DashBases';
 import UserHome from '../components/user/Home';
 import EtapasAdminTabla from '../components/admin/EtapasTabla';
+import FormularioPorra from '../components/user/Formulario';
 
 
 
@@ -32,6 +33,7 @@ const RoutesApp = () => {
             <Route path="/registro" element={<Registrarme />} />
             <Route path="/verify" element={<VerifyMagicLink />} />
             <Route path="/home" element={<UserHome/>}/>
+            <Route path="/formulario" element={<FormularioPorra/>}/>
 
             <Route path="/admin/login" element={<AdminLogin />} /> 
       
