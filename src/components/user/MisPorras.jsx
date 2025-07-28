@@ -6,6 +6,7 @@ function ItemPorra({porra}) {
   
 
 return (
+  <div className='lista-porras'>
      <div className="item">
       <div onClick={() => setAbierta(!abierta)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
         {porra.nombre}
@@ -21,6 +22,7 @@ return (
         </ul>
       )}
     </div>
+  </div>  
   );
 
 

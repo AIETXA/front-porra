@@ -50,7 +50,7 @@ axios.post(`${apiUrl}/api/porras`, payload, {
   }
 })
 .then(res => {
-  console.log(res.data); 
+ 
   setMensajeError(''),
  window.location.href = '/dashboard/user';
 })

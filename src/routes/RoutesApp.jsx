@@ -15,7 +15,7 @@ import BasesyCondiciones from '../pages/DashBases';
 import UserHome from '../components/user/Home';
 import EtapasAdminTabla from '../components/admin/EtapasTabla';
 import FormularioPorra from '../components/user/Formulario';
-import ListaDePorras from '../components/user/PorrasList';
+import AdminPorras from '../components/admin/TodasLasPorras';
 
 
 
@@ -39,11 +39,12 @@ const RoutesApp = () => {
             <Route path="/admin/login" element={<AdminLogin />} /> 
       
             <Route path="/admin" element={<ProtegerAdmin />}>
-                <Route path="" element={<AdminPanel/>}/>
+                <Route path="/admin" element={<AdminPanel/>}/>
+               
                     <Route path="etapas" element={<EtapasAdminTabla/>}/>
                     <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
                     <Route path="corredores" element={<Corredores/>}/>
-                   <Route path="listas" element={<ListaDePorras/>}/>
+                   <Route path="listas" element={<AdminPorras/>}/>
            
     
         

@@ -110,6 +110,17 @@ ol li {
   border: 1px solid #ddd;
   padding: 0.5rem;
 }
+.lista-porras {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  width: 600px;
+  border: .5px solid rgb(129, 122, 28);
+}
 
 .botones {
   border-radius: 8px;

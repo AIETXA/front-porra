@@ -28,7 +28,7 @@ console.log('Respuesta status:', res.status)
     }
     const data = await res.json();
     localStorage.setItem('token', data.token);
-    navigate('/admin');
+    navigate('/admin/listas');
 
     } catch (err) {
     console.error(err);
