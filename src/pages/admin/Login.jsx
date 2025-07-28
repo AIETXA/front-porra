@@ -5,11 +5,15 @@ function AdminLogin() {
   const [mensaje, setMensaje] = useState('')
   const navigate = useNavigate()
   const apiUrl = import.meta.env.VITE_API_URL;
+
+
 const handleSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const admin = formData.get('admin')
     const pass = formData.get('pass')
+
+ console.log('Datos a enviar:', JSON.stringify({ admin, pass }));
 
 try {
     const res = await fetch(`${apiUrl}/admin/login`, {
@@ -17,7 +21,7 @@ try {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ admin, pass })
     });
-
+console.log('Respuesta status:', res.status)
     if(!res.ok) {
         setMensaje('Credenciales erroneas');
         return;

@@ -5,8 +5,8 @@ import { FiPlusCircle } from 'react-icons/fi';
 function UserHome() {
     const navigate = useNavigate();
 
-    const [existePorra] = useState(false)
-    const[miPorra] = useState(null)
+    const [existePorra, setExistePorra] = useState(false)
+    const[miPorra, setMiPorra] = useState(null)
 
     useEffect(() => {
         const token = localStorage.getItem('authToken');
@@ -25,10 +25,10 @@ function UserHome() {
         })
             
         const data = await res.json();
-        setExistePorra(data?.porra ? true : false);
-        setMiPorra(data?.porra || null);
+        setExistePorra(data?.porras ? true : false);
+        setMiPorra(data?.porras || null);
   }
-  verificarSiHayPorra
+  verificarSiHayPorra()
  }, [navigate]);
 
 if(!existePorra) {
