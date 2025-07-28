@@ -39,12 +39,11 @@ const RoutesApp = () => {
             <Route path="/admin/login" element={<AdminLogin />} /> 
       
             <Route path="/admin" element={<ProtegerAdmin />}>
-                <Route path="/admin" element={<AdminPanel/>}/>
-               
-                    <Route path="etapas" element={<EtapasAdminTabla/>}/>
-                    <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
-                    <Route path="corredores" element={<Corredores/>}/>
-                   <Route path="listas" element={<AdminPorras/>}/>
+                <Route index element={<AdminPanel/>}/>
+                <Route path="etapas" element={<EtapasAdminTabla/>}/>
+                <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
+                <Route path="corredores" element={<Corredores/>}/>
+                <Route path="listas" element={<AdminPorras/>}/>
            
     
         
