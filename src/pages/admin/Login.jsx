@@ -13,7 +13,6 @@ const handleSubmit = async (e) => {
     const admin = formData.get('admin')
     const pass = formData.get('pass')
 
- console.log('Datos a enviar:', JSON.stringify({ admin, pass }));
 
 try {
     const res = await fetch(`${apiUrl}/admin/login`, {
@@ -28,7 +27,7 @@ console.log('Respuesta status:', res.status)
     }
     const data = await res.json();
     localStorage.setItem('token', data.token);
-    navigate('/admin/listas');
+    navigate('/admin');
 
     } catch (err) {
     console.error(err);

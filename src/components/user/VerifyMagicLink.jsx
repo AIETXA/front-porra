@@ -24,18 +24,14 @@ function VerifyMagicLink() {
         
         .then(res => {
             if (!res.ok) {
-    // Si no es 2xx, leemos texto para ver el error
+
     return res.text().then(text => {
       throw new Error(`Error ${res.status}: ${text}`);
     });
   }
-  return res.json(); // Solo parseamos JSON si está OK
+  return res.json(); 
 })
     
-            
-            
-            
-            //res.json())
             
         .then(data => {
             if(data.token) {
