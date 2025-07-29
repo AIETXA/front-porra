@@ -16,6 +16,7 @@ import UserHome from '../components/user/Home';
 import EtapasAdminTabla from '../components/admin/EtapasTabla';
 import FormularioPorra from '../components/user/Formulario';
 import AdminPorras from '../components/admin/TodasLasPorras';
+import Ranking from '../components/Ranking';
 
 
 
@@ -44,6 +45,7 @@ const RoutesApp = () => {
                 <Route path="etapas/:id" element={<AdminEtapaDetalle/>}/>
                 <Route path="corredores" element={<Corredores/>}/>
                 <Route path="listas" element={<AdminPorras/>}/>
+                <Route path="ranking" element={<Ranking/>}/>
            
     
         
