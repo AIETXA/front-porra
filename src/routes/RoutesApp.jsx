@@ -1,7 +1,7 @@
 
 import { Routes, Route } from 'react-router-dom';
-import VerifyMagicLink from '../components/user/VerifyMagicLink';
-import Registrarme from '../components/user/UserLogin';
+import Registrarme from '../components/user/Registro';
+import IniciarSesion from '../components/user/Login';
 import DashboardUser from '../components/user/DashUser';
 import Dashboard from '../pages/Dashboard';
 import ProtegerAdmin from '../components/admin/ProtegerAdmin';
@@ -32,7 +32,7 @@ const RoutesApp = () => {
             <Route path="/dashboard/corredores" element={<Corredores/>}/>
             
             <Route path="/registro" element={<Registrarme />} />
-            <Route path="/verify" element={<VerifyMagicLink />} />
+            <Route path="/login" element={<IniciarSesion />} />
             <Route path="/home" element={<UserHome/>}/>
             <Route path="/formulario" element={<FormularioPorra/>}/>
             <Route path="/dashboard/user" element={<DashboardUser/>}/>

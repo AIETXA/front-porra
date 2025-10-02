@@ -1,58 +1,61 @@
 import { useState } from 'react';
 
-
-
-function Registrarme() {
+function IniciarSesion() {
     const [ email, setEmail ] = useState('')
+    const [ password, setPassword ] = useState('')
     const [ mensaje, setMensaje ] = useState('')
-    
-    async function handleSubmit(e) {
+
+
+
+async function handleSubmit(e) {
         e.preventDefault();
         setMensaje('');
     
-        try {
-        const apiUrl = import.meta.env.VITE_API_URL;
+    try {
+    const apiUrl = import.meta.env.VITE_API_URL;
        
  
         const res = await fetch(`${apiUrl}/api/user/login`, {
            method: 'POST',
            headers: {'Content-Type':'application/json'},
-           credentials: 'include',
-           body: JSON.stringify({email})
-        });
+           body: JSON.stringify({email, password})
+        })
 
         const data = await res.json();
-          setMensaje('Enviando...')
-        console.log(data);
-
-        if(res.ok){
-            setMensaje('Revisá tu correo para acceder al enlace de acceso');
-        } else {
-            setMensaje('Error al enviar el enlace')
-        }
-
-    } catch {
+          setMensaje(data.message);
+          
+        } catch (error) {
+        console.error(error);
         setMensaje('Error en la conexión')
-        
+
     }
 }
-
 return (
     <div>
         <form onSubmit={handleSubmit}>
             <input 
             type='email'
-            placeholder='Tu email'
+            placeholder='Correo electrónico'
             value={email}
             onChange={(e) => setEmail(e.target.value) }
             required
             />
-            <button type='submit'>Enviar enlace</button>
-            
+            <input 
+            type='password'
+            placeholder='Contraseña'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            />
+        <button type='submit'>Iniciar sesión</button>
         </form>
         {mensaje && <p>{mensaje}</p>}
     </div>
-    )
+    
+
+);
+
+
 }
 
-export default Registrarme;
+export default IniciarSesion;
