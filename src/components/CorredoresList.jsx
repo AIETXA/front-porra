@@ -3,7 +3,7 @@ const CorredoresList = ({ corredores }) => {
     <ul>
       {corredores.map((c) => (
         <li key={c.id}>
-          #{c.dorsal} - {c.nombre} {c.equipo ? `(${c.equipo})` : ''}
+          #{c.dorsal} - {c.nombre} {c.apellido} {c.equipo ? `(${c.equipo})` : ''}
         </li>
       ))}
     </ul>
