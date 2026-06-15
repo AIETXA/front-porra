@@ -22,8 +22,44 @@ function DashboardUser() {
       return
     }
 
+   
     async function cargarDatos() {
-      
+      // 🚀 INTERCEPTOR MODO DEMO: Si entran como invitado, inyectamos los datos corregidos aquí
+      if (token === 'invitado_demo_porra') {
+        console.log('Modo Demo Activo: Cargando datos simulados para el CV.');
+        setPorras([
+          {
+            id: 1,
+            nombre: "Mi Porra del Tour 💛",
+            corredores: [
+              { corredor: { dorsal: 1, nombre: "Tadej", apellido: "Pogačar" } },
+              { corredor: { dorsal: 11, nombre: "Jonas", apellido: "Vingegaard" } },
+              { corredor: { dorsal: 21, nombre: "Remco", apellido: "Evenepoel" } }
+            ]
+          }
+        ]);
+        setRanking([
+          { nombre: "Ailén (Tú)", puntosTotales: 150 },
+          { nombre: "Reclutador_Demo", puntosTotales: 135 },
+          { nombre: "Usuario_Prueba", puntosTotales: 120 }
+        ]);
+        setEtapas([
+          { 
+            id: 1, 
+            nombre: "Etapa 1: Florencia > Rímini", 
+            tipo: "Media Montaña",
+            fecha: "2026-07-04T12:00:00.000Z" // ✅ Fecha ISO válida para evitar el Invalid Date
+          },
+          { 
+            id: 2, 
+            nombre: "Etapa 2: Cesenatico > Bolonia", 
+            tipo: "Media Montaña",
+            fecha: "2026-07-05T12:00:00.000Z" // ✅ Fecha ISO válida para evitar el Invalid Date
+          }
+        ]);
+        setLoading(false);
+        return; // Frenamos la función aquí para que no intente pegarle al backend real
+      }  
 
       try {
         const headers = { Authorization: 'Bearer ' + token }
