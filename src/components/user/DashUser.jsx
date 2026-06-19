@@ -27,17 +27,21 @@ function DashboardUser() {
       // 🚀 INTERCEPTOR MODO DEMO: Si entran como invitado, inyectamos los datos corregidos aquí
       if (token === 'invitado_demo_porra') {
         console.log('Modo Demo Activo: Cargando datos simulados para el CV.');
-        setPorras([
-          {
-            id: 1,
-            nombre: "Mi Porra del Tour 💛",
-            corredores: [
-              { corredor: { dorsal: 1, nombre: "Tadej", apellido: "Pogačar" } },
-              { corredor: { dorsal: 11, nombre: "Jonas", apellido: "Vingegaard" } },
-              { corredor: { dorsal: 21, nombre: "Remco", apellido: "Evenepoel" } }
-            ]
-          }
-        ]);
+        const porrasExtras = JSON.parse(localStorage.getItem('porras_creadas_demo')) || [];
+  
+  // 2. La porra inicial fija que siempre se muestra por defecto
+        const porraInicial = {
+          id: 1,
+          nombre: "Mi Porra del Tour 💛",
+          corredores: [
+            { corredor: { dorsal: 1, nombre: "Tadej", apellido: "Pogačar" } },
+            { corredor: { dorsal: 11, nombre: "Jonas", apellido: "Vingegaard" } },
+            { corredor: { dorsal: 21, nombre: "Remco", apellido: "Evenepoel" } }
+          ]
+        };
+        
+        setPorras([porraInicial, ...porrasExtras]);
+        
         setRanking([
           { nombre: "Ailén (Tú)", puntosTotales: 150 },
           { nombre: "Reclutador_Demo", puntosTotales: 135 },
@@ -99,8 +103,8 @@ function DashboardUser() {
         {porras.length === 0 ? (
             <p>No tenés porras creadas.</p>
             ) : (
-            porras.map((porra, i) => (
-                <ItemPorra key={i} porra={porra} />
+            porras.map((porra) => (
+                <ItemPorra key={porra.id} porra={porra} />
             ))
             )}
       <button 

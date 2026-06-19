@@ -44,6 +44,28 @@ const payload = {
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
+const token = localStorage.getItem('authToken');
+if(token === 'invitado_demo_porra') {
+    setMensajeError('');
+
+    const porrasCreadasPrevias = JSON.parse(localStorage.getItem('porras_creadas_demo')) || [];
+
+    const nuevaPorraDemo = {
+        id: Date.now(), // ID único para que funcione tu key={porra.id}
+        nombre: payload.nombre,
+        corredores: payload.dorsales.map(dorsal => ({
+            corredor: { dorsal: dorsal, nombre: "Corredor", apellido: `#${dorsal}` }
+        }))
+    };
+    
+    // 3. La sumamos a la lista y guardamos todo de vuelta
+    porrasCreadasPrevias.push(nuevaPorraDemo);
+    localStorage.setItem('porras_creadas_demo', JSON.stringify(porrasCreadasPrevias));
+    
+    window.location.href = '/dashboard/user';
+    return;
+}
+
 axios.post(`${apiUrl}/api/porras`, payload, {
   headers: {
     Authorization: 'Bearer ' + localStorage.getItem('authToken')

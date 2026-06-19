@@ -1,9 +1,10 @@
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Registrarme() {
-    console.log("Registrarme renderizado");
+    const navigate = useNavigate();
+
     const [ email, setEmail ] = useState('')
     const [ mensaje, setMensaje ] = useState('')
     const [ devLink, setDevLink ] = useState('');
@@ -42,9 +43,9 @@ async function handleLoginDemo() {
     setMensaje('Iniciando sesión demo...');
 
     localStorage.setItem('authToken', 'invitado_demo_porra');
-    setMensaje('¡Acceso concedido! Redirigiendo...');
+    
 
-    window.location.href = '/dashboard/user'; 
+    navigate('/dashboard/user'); 
 }
 return (
     <div>
